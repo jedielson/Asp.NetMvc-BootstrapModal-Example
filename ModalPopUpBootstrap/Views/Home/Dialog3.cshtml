@@ -1,0 +1,14 @@
+﻿@model MvcModalDialog.Models.DialogModel
+
+@using (Ajax.BeginModalDialogForm())
+{
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>Dialog3</legend>
+        <p>Please enter interger 3.</p>
+        @Html.LabelFor(m => m.Value)
+        @Html.TextBoxFor(m => m.Value)
+        <input type="submit" value="OK" />
+    </fieldset>
+}

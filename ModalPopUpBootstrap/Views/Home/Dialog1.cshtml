@@ -1,0 +1,17 @@
+﻿@model MvcModalDialog.Models.DialogModel
+
+@using (Ajax.BeginModalDialogForm())    // Modal dialog form
+{
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>Dialog1</legend>
+        <p>Please enter interger 1. Enter other value to see the validation errors.</p>
+        @Html.LabelFor(m => m.Value)
+        @Html.TextBoxFor(m => m.Value)
+        <p>
+            @Ajax.ModalDialogActionLink("Click to open dialog2", "Dialog2", "Dialog2")  // Action link to open dialog
+        </p>
+        <input type="submit" value="OK" />
+    </fieldset>
+}
