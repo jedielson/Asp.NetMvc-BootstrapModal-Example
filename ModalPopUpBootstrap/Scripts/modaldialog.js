@@ -1,40 +1,86 @@
 function prepareModalDialog(dialogDivId) {
-    $(document.body).append('<div id="' + dialogDivId + '"></div>');
+    $(document.body).append('<div class="modal fade" id="' + dialogDivId + '" role="dialog""></div>');
 }
 
 function clearModalDialog(dialogDivId) {
-    $("#" + dialogDivId).remove();
+
+    var div = $('#' + dialogDivId);
+    div.on('hidden.bs.modal', limpar(dialogDivId));
+    div.modal("hide");
 }
 
-function setFormDataAjaxAttributes(dialogDivId) {
+function setFormDataAjaxAttributes(dialogDivId, title, inputRetorno) {
     var div = $("#" + dialogDivId);
     div.find("form").attr("data-ajax-update", "#" + dialogDivId);
-    div.find("form").attr("data-ajax-complete", "onModalDialogSubmitted('" + dialogDivId + "')");
+    div.find("form").attr("data-ajax-complete", "onModalDialogSubmitted('" + dialogDivId + "', '" + title + "', '" + inputRetorno+ "')");
 }
 
-function onModalDialogSubmitted(dialogDivId) {
+function onModalDialogSubmitted(dialogDivId, title, inputRetorno) {
+    prepareBootstrapDialog(dialogDivId, title);
     var div = $("#" + dialogDivId);
     var result = div.find("div[data-dialog-close='true']");
-    if (result.length == 0)
-        setFormDataAjaxAttributes(dialogDivId);
-    else {
-        $("#" + dialogDivId).dialog('close');
-        var message = result.attr("data-dialog-result");
-        if (message.length > 0)
-            alert(message);
+    if (result.length == 0) {
+        setFormDataAjaxAttributes(dialogDivId, title, inputRetorno);
+        return;
+    }
+
+    recuperaDados(inputRetorno);
+
+    clearModalDialog(dialogDivId);
+    var message = result.attr("data-dialog-result");
+    if (message.length > 0) {
+        alert(message);
     }
 }
 
-function openModalDialog(dialogDivId, title) {
-    var div = $("#" + dialogDivId);
-    div.dialog({
-        title: title,
-        close: new Function("clearModalDialog('" + dialogDivId + "');"),
-        modal: true,
-        width: "auto",
-        height: "auto",
-        resizable: false
+function openModalDialog(dialogDivId, title, inputRetorno) {
+    prepareBootstrapDialog(dialogDivId, title);
+    var divModal = $("#" + dialogDivId);
+    divModal.modal({
+        show: true,
+        backdrop: "static"
     });
+    divModal.on('shown.bs.modal', mapearDropBack(dialogDivId));
+    setFormDataAjaxAttributes(dialogDivId, title, inputRetorno);
+}
 
-    setFormDataAjaxAttributes(dialogDivId);
+function prepareBootstrapDialog(dialogDivId, title) {
+    var div = $("#" + dialogDivId);
+    var form = $("#" + dialogDivId).find(':first').detach();
+
+    var modalPopUp = '<!-- Modal -->';
+    modalPopUp += '<div class="modal-dialog">';
+    modalPopUp += '<!-- Modal content-->';
+    modalPopUp += '<div class="modal-content">';
+    modalPopUp += '<div class="modal-header">';
+    modalPopUp += '<button type="button" class="close" data-dismiss="modal"';
+    modalPopUp += "onclick=clearModalDialog('" + dialogDivId;
+    modalPopUp += "')>&times;</button>";
+    modalPopUp += '<h4 class="modal-title">' + title + '</h4>';
+    modalPopUp += '</div>';
+    modalPopUp += '<div class="modal-body"></div>';
+    modalPopUp += '</div></div>';
+
+    div.append(modalPopUp);
+    div = $('#' + dialogDivId).find('.modal-body');
+    div.append(form);
+}
+
+function mapearDropBack(dialogDivId) {
+    $('.modal-backdrop').each(function () {
+        if ($(this).attr("id") == null) {
+            $(this).attr("id", dialogDivId);
+        }
+    });
+}
+
+function limpar(dialogDivId) {
+    $('#' + dialogDivId).remove();
+    $('#' + dialogDivId).remove();
+}
+
+
+function recuperaDados(inputRetorno) {
+    $("#" + inputRetorno).appendTo('body');
+
 }
