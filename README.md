@@ -1,9 +1,8 @@
 # BootstrapModal
 
 ## Conteúdo
-[Creditos](#antes-de-mais-nada-os-devidos-agradecimentos)
-
-[Configurando](#configurando)
+ [Creditos](#antes-de-mais-nada-os-devidos-agradecimentos)
+ [Configurando](#configurando)
 
 ### Antes de mais nada os devidos agradecimentos
 
