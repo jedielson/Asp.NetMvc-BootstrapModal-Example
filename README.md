@@ -1,11 +1,18 @@
 # BootstrapModal
 
-### Antes de mais nada, vamos aos devidos créditos ###
+## Conteúdo
+[Creditos](#antes-de-mais-nada-os-devidos-agradecimentos)
+
+[Configurando](#configurando)
+
+### Antes de mais nada os devidos agradecimentos
 
 Este exemplo é inteiramente baseado [neste post](http://www.devzest.com/blog/post/ASPNet-MVC-Modal-Dialog.aspx).
 Seu repositório original está [aqui](https://mvcmodaldialog.codeplex.com/releases/view/106691).
 
 A diferença básica, é que esta implementação é baseada em Bootstrap, e a primeira em JQuery UI.
+
+De qualquer forma, meu muito obrigado ao autor!
 
 ### Sobre Um Modal PopUp Funcional ###
 
@@ -21,7 +28,7 @@ Há algumas questões interessantes a serem resolvidas, como:
  
 A parte boa, é que podemos resolver quase todas estas perguntas de forma elegante.
 
-### Configurando ###
+### Configurando
 
 Então, vamos ao passo à passo para implementar esta solução no seu projeto.
 
