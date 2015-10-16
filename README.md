@@ -53,3 +53,14 @@ Então, vamos ao passo à passo para implementar esta solução no seu projeto.
  > bundles.Add(new ScriptBundle("~/bundles/modalPopUp").Include(
  >                     "~/Scripts/modaldialog.js"));
  > ```
+ 
+ 5. Agora, basta configurar a renderização dos scripts no layout.
+ 
+ > ``` c#
+ > @Scripts.Render("~/bundles/jquery")
+ > @Scripts.Render("~/bundles/jqueryval")
+ > @Scripts.Render("~/bundles/bootstrap")
+ > @Scripts.Render("~/bundles/modalPopUp")
+ > @RenderSection("scripts", required: false)
+ > ´´´
+ 
