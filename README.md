@@ -14,7 +14,7 @@ A diferença básica, é que esta implementação é baseada em Bootstrap, e a p
 
 De qualquer forma, meu muito obrigado ao autor!
 
-### Sobre Um Modal PopUp Funcional ###
+### Sobre Um Modal PopUp Funcional
 
 Não, fazer um dialog popUp utilizando Jquery, ou Bootstrap não é algo realmente novo no mercado.
 Na verdade, é possível ficar horas e horas navegando na web e obter um milhão de soluções diferentes.
