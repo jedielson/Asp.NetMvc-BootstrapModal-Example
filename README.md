@@ -29,13 +29,7 @@ Então, vamos ao passo à passo para implementar esta solução no seu projeto.
  > - [Microsoft jQuery Unobtrusive Ajax - v 3.2.3](https://www.nuget.org/packages/Microsoft.jQuery.Unobtrusive.Ajax/)
 
  3. Após todas as suas libs estarem instaladas, você precisará copiar os arquivos **ModalDialogExtensions.cs** e **modaldialog.js**. Você pode colocar o arquivo de extensões em uma pasta customizada do projeto, ou na raíz. Após isso, certifique-se de efetuar as correções de namespaces necessárias, se assim desejar.
- 4. O passo seguinte é a configuração do uso do script, no arquivo **BundleConfig.cs**, como no exemplo abaixo:
-
-
-``` c#
-bundles.Add(new ScriptBundle("~/bundles/modalPopUp").Include(
-                    "~/Scripts/modaldialog.js"));
-```
+ 
 > <i class="icon-cog"></i>Para o correto funcionamento dos HtmlHelpers, você deve entrar no arquivo Web.config da pasta ~/Views, e adicionar o namespace do arquivo **ModalDialogExtensions.cs**
 > ``` xml
 > <system.web.webPages.razor>
@@ -52,3 +46,10 @@ bundles.Add(new ScriptBundle("~/bundles/modalPopUp").Include(
     </pages>
   </system.web.webPages.razor>
 > ```
+
+4. O passo seguinte é a configuração do uso do script, no arquivo **BundleConfig.cs**, como no exemplo abaixo:
+
+``` c#
+bundles.Add(new ScriptBundle("~/bundles/modalPopUp").Include(
+                    "~/Scripts/modaldialog.js"));
+```
