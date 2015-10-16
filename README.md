@@ -2,8 +2,9 @@
 
 ## Conteúdo
  - [Creditos](#antes-de-mais-nada-os-devidos-agradecimentos)
- - [Configurando](#configurando)
  - [Sobre Um Modal PopUp Funcional](#sobre-um-modal-popup-funcional)
+ - [Configurando](#configurando)
+ - [Como Utilizar](#como-utilizar)
 
 ### Antes de mais nada os devidos agradecimentos
 
@@ -77,7 +78,7 @@ Então, vamos ao passo à passo para implementar esta solução no seu projeto.
  > @RenderSection("scripts", required: false)
  > ```
 
-### Como Utilizar ###
+### Como Utilizar
 
 A ideia da solução, é configurar onde e como será usado um PopUp, através de HtmlHelpers, afim de obter uma implantação padronizada da solução.
 
