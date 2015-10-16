@@ -11,9 +11,7 @@ Na verdade, é possível ficar horas e horas navegando na web e obter um milhão
 Há algumas questões interessantes a serem resolvidas, como:
 
  - Como evitar que para n popups diferentes na solução, sejam implementadas n soluções diferentes, com n códigos Javascritp diferentes?
- 
  - Como garantir que seja possível integrar as facilidades do Asp.Net Mvc, como HtmlHelpers, e fazer isto sem corromper a estrutura do projeto, ou o padrão de desenvolvimento adotado?
-
  - Como retornar dados gerados no submit de um formulário aberto em um popup, de forma a customizada?
   
  
