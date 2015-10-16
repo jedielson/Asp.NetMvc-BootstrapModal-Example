@@ -49,7 +49,7 @@ Então, vamos ao passo à passo para implementar esta solução no seu projeto.
 
  4. O passo seguinte é a configuração do uso do script, no arquivo **BundleConfig.cs**, como no exemplo abaixo:
 
-``` c#
-bundles.Add(new ScriptBundle("~/bundles/modalPopUp").Include(
-                    "~/Scripts/modaldialog.js"));
-```
+ > ``` c#
+ > bundles.Add(new ScriptBundle("~/bundles/modalPopUp").Include(
+ >                     "~/Scripts/modaldialog.js"));
+ > ```
