@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
-    @Styles.Render("~/Content/themes/base/all.css")
-    @Styles.Render("~/Content/themes/base/dialog.css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
@@ -15,8 +13,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/Scripts/callbacks/callbacks.js")
-    @Scripts.Render("~/Scripts/modaldialog.js")
+    @Scripts.Render("~/bundles/modalPopUp")
     @RenderSection("scripts", required: false)
 </body>
 </html>
