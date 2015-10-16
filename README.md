@@ -55,12 +55,11 @@ Então, vamos ao passo à passo para implementar esta solução no seu projeto.
  > ```
  
  5. Agora, basta configurar a renderização dos scripts no layout.
- 
- > ``` c#
+
+ > ``` C#
  > @Scripts.Render("~/bundles/jquery")
  > @Scripts.Render("~/bundles/jqueryval")
  > @Scripts.Render("~/bundles/bootstrap")
  > @Scripts.Render("~/bundles/modalPopUp")
  > @RenderSection("scripts", required: false)
- > ´´´
- 
+ > ```
