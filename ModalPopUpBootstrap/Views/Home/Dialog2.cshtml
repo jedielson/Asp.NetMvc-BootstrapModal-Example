@@ -10,7 +10,7 @@
         <p>Enter other value to see the validation errors.</p>
         @Html.LabelFor(m => m.Value)
         @Html.TextBoxFor(m => m.Value)
-        <p>@Ajax.ModalDialogActionLink("Click to open dialog3", "Dialog3", "Dialog3")</p>
+        <p>@Ajax.ModalDialogActionLink("Click to open dialog3", "Dialog3", "Home", "Dialog 3", null, null)</p>
         <input type="submit" value="OK" />
     </fieldset>
 }

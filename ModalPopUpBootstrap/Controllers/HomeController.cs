@@ -64,10 +64,9 @@
         {
             if (this.ModelState.IsValid)
             {
-                var data = new { id = 1, valor = "Ronaldo" };
-                var jsonResponse = new ModalDialogExtensions.JsonDialogResult("jediInput", data);
+                var data = new { id = answer, valor = "Mensagem " + answer };
                 if (model.Value == answer)
-                    return this.DialogResult(message, jsonResponse);  // Close dialog via DialogResult call
+                    return this.DialogResult(message, data);  // Close dialog via DialogResult call
                 else
                     this.ModelState.AddModelError("", string.Format("Invalid input value. The correct value is {0}", answer));
             }
