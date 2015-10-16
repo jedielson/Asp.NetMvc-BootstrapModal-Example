@@ -83,3 +83,23 @@ Então, vamos ao passo à passo para implementar esta solução no seu projeto.
 A ideia da solução, é configurar onde e como será usado um PopUp, através de HtmlHelpers, afim de obter uma implantação padronizada da solução.
 
 #### 1 - Configurando a chamada do PopUp ####
+
+Para criar um link capaz de criar um PopUp, basta usar o AjaxHelper ModalDialogActionLink.
+
+  > ``` C#
+  > @Ajax.ModalDialogActionLink("Texto do Link", "Action", "Controller", "Título da Janela", RouteValues, htmlAttributes, "funcaoCallback")
+  > ```
+
+Este helper, renderiza um link com as informações básicas para a criação do PopUp.
+
+ > ``` html
+ > <a data-ajax="true" 
+      data-ajax-begin="prepareModalDialog('d6f58bd7-5747-4346-8aa1-3048e94d4969')
+      data-ajax-failure="clearModalDialog('d6f58bd7-5747-4346-8aa1-3048e94d4969');alert('Ajax call failed')"
+      data-ajax-method="GET" data-ajax-mode="replace"
+      data-ajax-success="openModalDialog('d6f58bd7-5747-4346-8aa1-3048e94d4969', 'Título da Janela', funcaoCallback)"
+      data-ajax-update="#d6f58bd7-5747-4346-8aa1-3048e94d4969" 
+      href="/Controller/Action">
+      Texto do Link
+    </a>
+ > ```
