@@ -69,3 +69,9 @@ Então, vamos ao passo à passo para implementar esta solução no seu projeto.
  > @Scripts.Render("~/bundles/modalPopUp")
  > @RenderSection("scripts", required: false)
  > ```
+
+### Como Utilizar ###
+
+A ideia da solução, é configurar onde e como será usado um PopUp, através de HtmlHelpers, afim de obter uma implantação padronizada da solução.
+
+#### 1 - Configurando a chamada do PopUp ####
