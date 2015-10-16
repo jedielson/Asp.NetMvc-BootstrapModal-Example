@@ -32,7 +32,23 @@ Então, vamos ao passo à passo para implementar esta solução no seu projeto.
  4. O passo seguinte é a configuração do uso do script, no arquivo **BundleConfig.cs**, como no exemplo abaixo:
 
 
-```
+``` c#
 bundles.Add(new ScriptBundle("~/bundles/modalPopUp").Include(
                     "~/Scripts/modaldialog.js"));
 ```
+> <i class="icon-cog"></i>Para o correto funcionamento dos HtmlHelpers, você deve entrar no arquivo Web.config da pasta ~/Views, e adicionar o namespace do arquivo **ModalDialogExtensions.cs**
+> ``` xml
+> <system.web.webPages.razor>
+    <host factoryType="System.Web.Mvc.MvcWebRazorHostFactory, System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=blahblahtoken" />
+    <pages pageBaseType="System.Web.Mvc.WebViewPage">
+      <namespaces>
+        <add namespace="System.Web.Mvc" />
+        <add namespace="System.Web.Mvc.Ajax" />
+        <add namespace="System.Web.Mvc.Html" />
+        <add namespace="System.Web.Optimization"/>
+        <add namespace="System.Web.Routing" />
+        <add namespace="namespace.of.my.modaldialogextensions" />
+      </namespaces>
+    </pages>
+  </system.web.webPages.razor>
+> ```
