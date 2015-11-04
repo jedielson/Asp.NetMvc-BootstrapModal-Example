@@ -66,9 +66,11 @@
             {
                 var data = new { id = answer, valor = "Mensagem " + answer };
                 if (model.Value == answer)
-                    return this.DialogResult(message, data);  // Close dialog via DialogResult call
-                else
-                    this.ModelState.AddModelError("", string.Format("Invalid input value. The correct value is {0}", answer));
+                {
+                    return this.DialogResult(message, data); // Close dialog via DialogResult call
+                }
+
+                this.ModelState.AddModelError(string.Empty, string.Format("Invalid input value. The correct value is {0}", answer));
             }
 
             return this.PartialView(model);
