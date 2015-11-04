@@ -103,3 +103,40 @@ Este helper, renderiza um link com as informações básicas para a criação do
       Texto do Link
     </a>
  > ```
+
+#### 2 - Configurando o retorno do PopUp ####
+
+Após efetuar o submit do dos dados contidos no formulário, você pode tratar a resposta de três formas diferentes.
+
+- Atualizando o formulário para exibir erros, usando os recursos de validação do Asp.Net Mvc
+- Empilhando outro PopUp
+- Fechando o PopUp, podendo enviar dados e tratá-los usando a funcção de callback informada anteriormente.
+ 
+Como exemplo, podemos usar o código abaixo:
+
+> ``` C#
+ ActionResult ProcessDialog(DialogModel model, int answer, string message)
+        {
+            if (this.ModelState.IsValid)
+            {
+                var data = new { id = answer, valor = "Mensagem " + answer };
+                if (model.Value == answer)
+                {
+                    return this.DialogResult(message, data); // Close dialog via DialogResult call
+                }
+                this.ModelState.AddModelError(string.Empty, string.Format("Invalid input value. The correct value is {0}", answer));
+            }
+            return this.PartialView(model);
+        }
+        
+
+Para atualizar um formulário com outro conteúdo (seja o mesmo formulário, com mensagens de erro, ou um novo formulário) basta retornar uma PartialView, com seu respectivo model.
+
+Para fechar o PopUp, você deve retornar um DialogResult, podendo passar ou não, dados que serão enviados via Json para o client. Para efetuar o processamento destes dados, você pode utilizar a função de callback definida na montagem do link.
+
+>``` javascript
+  function funcaoCallback(data){
+      console.log('dados retornados pelo servidor' + data);
+  }
+  
+Por fim, caso você precise empilhar um novo PopUp, basta que você configure um ModalDialogActionLink no formulário que será aberto via PopUp. As regras para tratamento de dados são exatamente as mesmas.
